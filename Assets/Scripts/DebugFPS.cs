@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class DebugFPS : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnGUI()
     {
-        
+        //Display the value from GetGameFrameRate function
+        GUI.Label(new Rect(10, 10, 100, 20), "FPS: " + GetGameFrameRate().ToString("0.0"));
+
     }
 
-    // Update is called once per frame
-    void Update()
+    float GetGameFrameRate()
     {
-        
+
+        return 1.0f / Time.smoothDeltaTime;
     }
+    
+
 }
